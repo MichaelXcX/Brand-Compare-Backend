@@ -7,7 +7,7 @@ import "./Table.css"
 
 const toTimestamp = (strDate) => {
     const dt = Date.parse(strDate);
-    return dt/1000;
+    return dt;
 }
 
 function Table(props) {
@@ -22,7 +22,6 @@ function Table(props) {
 
     const handleStartDate = (e) => {
         e.preventDefault();
-
         setStart(toTimestamp(e.target.value));
     }
 
@@ -79,12 +78,12 @@ function Table(props) {
             <div className='datepicker-container'>
                 <p>Start date:</p>
                 <div className='date-container'>
-                    <input type="date" onChange={handleStartDate} value={new Date().getTime()}/>
+                    <input type="datetime-local" onChange={handleStartDate} value={new Date().getTime()}/>
                     <p>{start}</p>
                 </div>               
                 <p>End date:</p>
                 <div className='date-container'>
-                    <input type="date" onChange={handleEndDate} value={new Date().getTime()} />
+                    <input type="datetime-local" onChange={handleEndDate} value={new Date().getTime()} />
                     <p>{end}</p>
                 </div>
                 <button  onClick={didUpdate}> Update </button>

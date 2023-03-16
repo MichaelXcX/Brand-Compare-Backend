@@ -8,9 +8,7 @@ function TableRow(props) {
     const [update, setUpdate] = useState(true);
     console.log(props.start + " | " + props.end)
 
-    const didUpdate = () => {
-        setUpdate(!update);
-    }
+
 
     useEffect(() => {
         const fetchProfileData = async () => {
@@ -28,7 +26,7 @@ function TableRow(props) {
             console.log(fans + " | " + engagement);
         }
         fetchProfileData();
-    }, [update])
+    }, [props.update])
 
     return (
         <tr>
